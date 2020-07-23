@@ -29,14 +29,14 @@ flags = tf.flags
 
 FLAGS = flags.FLAGS
 
-flags.DEFINE_string("input_file", None,
+flags.DEFINE_string("input_file", 'best_practice_data.txt',
                     "Input raw text file (or comma-separated list of files).")
 
 flags.DEFINE_string(
-    "output_file", None,
+    "output_file", 'tf_bestp.tfrecord',
     "Output TF example file (or comma-separated list of files).")
 
-flags.DEFINE_string("vocab_file", None,
+flags.DEFINE_string("vocab_file", './resources/vocab.txt',
                     "The vocabulary file that the BERT model was trained on.")
 
 flags.DEFINE_bool(
@@ -45,12 +45,12 @@ flags.DEFINE_bool(
     "models and False for cased models.")
 
 flags.DEFINE_bool(
-    "do_whole_word_mask", False,
+    "do_whole_word_mask", True,
     "Whether to use whole word masking rather than per-WordPiece masking.")
 
-flags.DEFINE_integer("max_seq_length", 128, "Maximum sequence length.")
+flags.DEFINE_integer("max_seq_length", 256, "Maximum sequence length.")
 
-flags.DEFINE_integer("max_predictions_per_seq", 20,
+flags.DEFINE_integer("max_predictions_per_seq", 23,
                      "Maximum number of masked LM predictions per sequence.")
 
 flags.DEFINE_integer("random_seed", 12345, "Random seed for data generation.")
